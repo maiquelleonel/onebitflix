@@ -10,7 +10,7 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.integer :episode_number
       t.string :featured_thumbnail_key
       t.string :thumbnail_cover_key
-      t.boolean :highlighted​ , default: false
+      t.boolean :highlighted , default: false
       t.timestamps
     end
   end

@@ -23,14 +23,14 @@ ActiveRecord::Schema.define(version: 2018_05_23_033727) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "fovorites", force: :cascade do |t|
+  create_table "favorites", force: :cascade do |t|
     t.string "favoritable_type"
     t.bigint "favoritable_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["favoritable_type", "favoritable_id"], name: "index_fovorites_on_favoritable_type_and_favoritable_id"
-    t.index ["user_id"], name: "index_fovorites_on_user_id"
+    t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable_type_and_favoritable_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2018_05_23_033727) do
     t.integer "episode_number"
     t.string "featured_thumbnail_key"
     t.string "thumbnail_cover_key"
-    t.boolean "highlighted​", default: false
+    t.boolean "highlighted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_movies_on_category_id"
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 2018_05_23_033727) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "fovorites", "users"
+  add_foreign_key "favorites", "users"
   add_foreign_key "movies", "categories"
   add_foreign_key "movies", "series", column: "serie_id"
   add_foreign_key "players", "movies"
